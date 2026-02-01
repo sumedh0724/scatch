@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scatch-Our custom brand.</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <div class="main bg-white font-Helvetica tracking-tighter flex justify-between items-center mx-4 mt-4 relative">
+
+        <h2 class="text-black text-2xl font-light z-90">Scatch</h2>
+
+        <% let loggedIn = (typeof isLoggedIn==='undefined') ? true : isLoggedIn %>
+
+        <% if(loggedIn){%>
+
+        <nav class="flex gap-5 mr-8">
+            <% if (user && user.role === 'admin') { %>
+              <a href="/products/create-product">Add Product</a>
+            <% } %>
+            <a href="Shop">Shop</a>
+            <a href="#">Cart</a>
+            <a href="#">My Account</a>
+            <a href="/" class="text-red-700">Log out</a>
+
+        </nav>
+
+        <% } %>
+
+        <% if (success.length > 0 || error.length > 0) { %>
+  <div class="fixed top-10 left-1/2 -translate-x-1/2 z-50">
+    <div class="px-6 py-3 rounded-lg shadow-lg text-white font-semibold
+      <%= success.length ? 'bg-green-700' : 'bg-red-200' %>">
+      <%= success.length ? success : error %>
+    </div>
+  </div>
+<% } %>
+
+    </div>
+</body>
+</html>

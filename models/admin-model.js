@@ -5,6 +5,7 @@ const adminModel = mongoose.Schema({
     email: String,
     products:{
         type: Array,
+        default: []
     },
     password: String
 });

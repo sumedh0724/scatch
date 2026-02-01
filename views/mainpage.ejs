@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scatch-Our custom brand.</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+</head>
+<body>
+
+    <div class="main bg-white w-full h-full font-Helvetica tracking-tighter">
+        
+        <%- include('partials/header') %>
+
+        <div class="content h-full mx-10 flex gap-40">
+
+            <div class="leftdiv mt-10 w-1/7">
+
+                <div class="sort flex w-[160px] flex items-center justify-between">
+                <span class="font-medium">sort by </span>
+                <select name="sort by" id="filter" class="border-1 rounded-sm border-zinc-400 px-2 pt-1">
+                    <option value="popular">Popular</option>
+                    <option value="rated">Rated</option>
+                    <option value="liked">Liked</option>
+                </select>
+                </div>
+
+                <div class="collections mt-20 text-black-400 font-medium flex flex-col">
+                    <a href="#">New Collection</a>
+                    <a href="#">All Products</a>
+                    <a href="#">Discounted Products</a>
+                </div>
+
+                <div class="filter flex flex-col gap-2 font-medium mt-30">
+
+                    <span>Filter by: </span>
+                    <span>Availability</span>
+                    <span>Discount</span>
+
+                </div>
+
+
+            </div>
+
+            <div class="rightdiv mt-10 w-full">
+
+                <div class="cards flex flex-wrap gap-9">
+                    <% if(products.length>0){ %>
+                <% products.forEach(product=>{ %>
+                    
+                    
+                    <div class="card w-[250px] h-[250px] flex flex-col justify-between items-center bg-[<%=product.bgcolor%>]">
+                        <img   src="data:image/jpeg;base64,<%= product.picture.toString('base64') %>" 
+  alt="Prod Img" class="w-8/9 h-5/7 my-auto">
+                        <div class="info flex w-[250px] justify-between items-center px-3 py-1 bg-[<%=product.panelcolor%>] text-[<%=product.textcolor%>]">
+                            <div class="left flex flex-col
+                            gap-1">
+                                <span><%= product.name%></span>
+                                <span>&#8377;<%= product.price%></span>
+                            </div>
+                            <div class="right rounded-md">
+                                <button class="p-2"><i class="ri-shopping-cart-line"></i></button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                <%})%>
+                    <% }else{ %>
+                        <div class="flex justify-between items-center"><span>No products to display.</span></div>
+                    <% } %>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

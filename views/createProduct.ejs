@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scatch-Our custom brand.</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="main w-full h-full font-Helvetica tracking-tighter">
+        
+        <%- include('partials/header') %>
+
+        <div class="content h-full mx-10 flex gap-40">
+
+            <div class="leftdiv mt-10 w-1/7 flex flex-col gap-2 text-zinc-800 border-gray-300 ">
+
+                <a href="#">All Products</a>
+                <a href="#">Create New Product</a>
+
+            </div>
+
+            <div class="rightdiv mt-10 h-4/5 border-1 border-r-1 p-10">
+
+                <h3 class="font-normal text-2xl">Create New Product</h3>
+
+                
+                <div class="form w-fit">
+
+                <form action="/admin/create-product" method="POST"  enctype="multipart/form-data">
+
+                    <h4 class="my-5 font-medium font-Helvetica">Product Details</h4>
+                    
+                    <span class="block my-2">Product Image</span>
+
+
+                    <input type="file" name="picture" class="block mb-8">
+
+                    <input type="text" name="name" id="" class="mx-4 text-zinc-800 border-1 border-gray-300 w-[400px] my-3 py-1 px-3 rounded-md" required placeholder="Product Name">
+                    <input type="text" name="price" id="" class="mx-4 text-zinc-800 border-1 border-gray-300 w-[400px] my-3 py-1 px-3 rounded-md" required placeholder="Product Price">
+                    <input type="text" name="discount" id="" class="mx-4 text-zinc-800 border-1 border-gray-300 w-[400px] my-3 py-1 px-3 rounded-md" required placeholder="Discount Price">
+
+                    <h4 class="mt-9">Panel Details</h4>
+
+                    <input type="text" name="bgcolor" id="" class="mx-4 text-zinc-800 border-1 border-gray-300 w-[400px] my-3 py-1 px-3 rounded-md" placeholder="Background Color">
+                    <input type="text" name="panelcolor" id="" class="mx-4 text-zinc-800 border-1 border-gray-300 w-[400px] my-3 py-1 px-3 rounded-md"placeholder="Panel Color">
+                    <input type="text" name="textcolor" id="" class="mx-4 text-zinc-800 border-1 border-gray-300 w-[400px] my-3 py-1 px-3 rounded-md block" placeholder="Text Color">
+
+                    <input type="submit" value="Create New Product" class="bg-blue-500 text-white p-2 rounded-md mx-4 mt-2 text-1xl font-lighter">
+
+
+                </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
