@@ -1,20 +1,11 @@
 import mongoose from "mongoose";
-import config from 'config';
-import debug from "debug";
 
-const dbgr = debug("development:mongoose");
-
-if (process.env.NODE_ENV === "development") {
-  debug.enable("development:mongoose");
-}
-
-dbgr("NODE_ENV:", process.env.NODE_ENV);
-
+const uri = process.env.MONGO_URI;
 
 mongoose
-  .connect(`${config.get('MONGODB_URI')}/snatch`)
+  .connect(`${uri}/snatch`)
   .then(() => {
-    dbgr("Connected to database.");
+    console.log("Connected to database.");
   })
   .catch((err) => {
     console.error("Database connection error:", err);
