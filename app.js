@@ -51,4 +51,4 @@ app.use('/users', userRouter);
 app.use('/products', productRouter);
 // app.use('/admin', adminRouter);
 
-app.listen(3000);
+export default app;
